@@ -1,11 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from 'react';
+import Sidebar from '../components/Sidebar';
+import LiveTicker from '../components/LiveTicker';
+import TokenList from '../components/TokenList';
+import CreateToken from '../components/CreateToken';
+import TradingView from '../components/TradingView';
 
 const Index = () => {
+  const [activeView, setActiveView] = useState('pairs');
+  const [selectedToken, setSelectedToken] = useState(null);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Live Ticker */}
+      <LiveTicker />
+      
+      <div className="flex">
+        {/* Sidebar */}
+        <Sidebar activeView={activeView} setActiveView={setActiveView} />
+        
+        {/* Main Content */}
+        <div className="flex-1 ml-64">
+          {activeView === 'pairs' && (
+            <TokenList onSelectToken={setSelectedToken} />
+          )}
+          {activeView === 'create' && <CreateToken />}
+          {activeView === 'trading' && selectedToken && (
+            <TradingView token={selectedToken} />
+          )}
+        </div>
       </div>
     </div>
   );
