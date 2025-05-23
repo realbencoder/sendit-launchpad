@@ -1,5 +1,5 @@
 
-import { Rocket, Plus, TrendingUp, User, Bridge, Zap } from 'lucide-react';
+import { Rocket, Plus, TrendingUp, User, ArrowRightLeft, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface SidebarProps {
@@ -13,7 +13,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
     { id: 'create', label: 'Create Token', icon: Plus },
     { id: 'trending', label: 'Trending', icon: TrendingUp },
     { id: 'profile', label: 'My Profile', icon: User },
-    { id: 'bridge', label: 'Bridge', icon: Bridge },
+    { id: 'bridge', label: 'Bridge', icon: ArrowRightLeft },
   ];
 
   return (
