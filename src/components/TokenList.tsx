@@ -79,6 +79,10 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
     }
   ];
 
+  const handleTokenClick = (token: Token) => {
+    onSelectToken(token);
+  };
+
   return (
     <div className="p-6 pt-20">
       {/* Header */}
@@ -108,7 +112,7 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
           <div 
             key={token.id}
             className="bg-gray-850 border border-gray-700 rounded-xl p-4 hover:border-abstract/50 transition-all duration-200 cursor-pointer group"
-            onClick={() => onSelectToken(token)}
+            onClick={() => handleTokenClick(token)}
           >
             {/* Token Header */}
             <div className="flex items-start justify-between mb-3">
@@ -168,13 +172,22 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
               </div>
               
               <div className="flex items-center space-x-2">
-                <button className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/50 transition-all duration-300">
+                <button 
+                  className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/50 transition-all duration-300"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <Twitter className="w-4 h-4" />
                 </button>
-                <button className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/50 transition-all duration-300">
+                <button 
+                  className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/50 transition-all duration-300"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <MessageCircle className="w-4 h-4" />
                 </button>
-                <button className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/50 transition-all duration-300">
+                <button 
+                  className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/50 transition-all duration-300"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <ExternalLink className="w-4 h-4" />
                 </button>
               </div>
