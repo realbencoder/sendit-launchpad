@@ -3,7 +3,7 @@ import { User, Award, Coins } from 'lucide-react';
 
 const SendorHub = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 pt-20">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white">Sendor Hub</h1>
         <p className="text-gray-400">Your wallet-linked activity and profile</p>
