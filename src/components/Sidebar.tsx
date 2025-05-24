@@ -1,4 +1,4 @@
-import { Rocket, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Rocket, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
@@ -25,11 +25,9 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
   ];
 
   const socialIcons = [
+    { id: 'telegram', label: 'Telegram', icon: MessageCircle, url: '#' },
     { id: 'twitter', label: 'Twitter', icon: Twitter, url: '#' },
-    { id: 'facebook', label: 'Facebook', icon: Facebook, url: '#' },
-    { id: 'instagram', label: 'Instagram', icon: Instagram, url: '#' },
-    { id: 'linkedin', label: 'LinkedIn', icon: Linkedin, url: '#' },
-    { id: 'youtube', label: 'YouTube', icon: Youtube, url: '#' },
+    { id: 'tiktok', label: 'TikTok', icon: Users, url: '#' },
   ];
 
   const isMoreItemActive = moreMenuItems.some(item => item.id === activeView);
