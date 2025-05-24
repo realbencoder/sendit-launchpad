@@ -171,7 +171,7 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
                 size="sm" 
                 className="bg-abstract hover:bg-abstract-dark text-black font-bold"
               >
-                SNIPE
+                TRADE
               </Button>
             </div>
           </div>
