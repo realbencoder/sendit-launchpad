@@ -80,7 +80,7 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
   ];
 
   return (
-    <div className="p-6 mt-4">
+    <div className="p-6 pt-20">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
