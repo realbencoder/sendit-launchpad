@@ -15,8 +15,8 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 142 76% 36%;
-    --primary-foreground: 355 7% 97%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 0 0% 0%;
 
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -32,7 +32,7 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 142 76% 36%;
+    --ring: 195 100% 50%;
 
     --radius: 0.5rem;
   }
@@ -44,7 +44,11 @@
   }
 
   body {
-    @apply bg-gray-900 text-foreground font-sans;
+    @apply bg-gradient-to-br from-gray-925 via-gray-900 to-gray-875 text-foreground font-sans;
+    background-size: 100px 100px;
+    background-image: 
+      linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
   }
   
   /* Custom scrollbar */
@@ -57,16 +61,34 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-600 rounded-full;
+    @apply bg-gradient-to-b from-abstract to-abstract-dark rounded-full;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-abstract;
+    @apply from-abstract-light to-abstract;
   }
 }
 
 @layer components {
   .ticker-item {
     animation: slide-up 0.5s ease-out;
+  }
+
+  .neon-glow {
+    @apply shadow-lg;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+
+  .neon-border {
+    @apply border border-abstract/50;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
+  }
+
+  .cyber-card {
+    @apply bg-gradient-to-br from-gray-850 via-gray-875 to-gray-900 border border-abstract/30 rounded-lg;
+    background-image: 
+      linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 }

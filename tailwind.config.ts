@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,15 +52,26 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Abstract brand colors
+				// Cool modern brand colors
 				abstract: {
-					DEFAULT: '#00FF9C',
-					dark: '#00E089',
-					light: '#33FFA8'
+					DEFAULT: '#00D9FF',
+					dark: '#00B8E6',
+					light: '#33E1FF',
+					purple: '#8B5CF6',
+					pink: '#EC4899'
+				},
+				neon: {
+					blue: '#0EA5E9',
+					purple: '#8B5CF6',
+					pink: '#EC4899',
+					green: '#10B981',
+					yellow: '#F59E0B'
 				},
 				gray: {
 					850: '#1a1a1a',
+					875: '#151515',
 					900: '#0f0f0f',
+					925: '#0d0d0d',
 					950: '#0a0a0a'
 				}
 			},
@@ -70,7 +80,32 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'cyber-grid': "linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px)"
+			},
 			keyframes: {
+				'pulse-neon': {
+					'0%, 100%': {
+						boxShadow: '0 0 5px #00D9FF, 0 0 10px #00D9FF, 0 0 15px #00D9FF',
+					},
+					'50%': {
+						boxShadow: '0 0 10px #00D9FF, 0 0 20px #00D9FF, 0 0 30px #00D9FF',
+					},
+				},
+				'glow': {
+					'from': {
+						textShadow: '0 0 10px #00D9FF, 0 0 20px #00D9FF, 0 0 30px #00D9FF',
+					},
+					'to': {
+						textShadow: '0 0 20px #00D9FF, 0 0 30px #00D9FF, 0 0 40px #00D9FF',
+					},
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -110,7 +145,10 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-abstract': 'pulse-abstract 2s ease-in-out infinite',
-				'slide-up': 'slide-up 0.3s ease-out'
+				'slide-up': 'slide-up 0.3s ease-out',
+				'pulse-neon': 'pulse-neon 2s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite alternate',
+				'float': 'float 3s ease-in-out infinite'
 			},
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
