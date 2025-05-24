@@ -1,10 +1,9 @@
-
 import { Award, Check, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const SenditPass = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 pt-20">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white">SendIt Pass</h1>
         <p className="text-gray-400">Exclusive benefits for pass holders</p>

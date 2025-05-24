@@ -1,9 +1,8 @@
-
 import { Palette, Users, Video, Clock } from 'lucide-react';
 
 const SenditStudio = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 pt-20">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white">Sendit Studio</h1>
         <p className="text-gray-400">Hire creators to boost your token's visibility</p>
