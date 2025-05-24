@@ -35,6 +35,8 @@
     --ring: 195 100% 50%;
 
     --radius: 0.5rem;
+    
+    --sidebar-width: 256px;
   }
 }
 
@@ -91,4 +93,13 @@
       linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
     background-size: 20px 20px;
   }
+}
+
+/* Dynamic sidebar width adjustment */
+.sidebar-collapsed {
+  --sidebar-width: 80px;
+}
+
+.sidebar-expanded {
+  --sidebar-width: 256px;
 }

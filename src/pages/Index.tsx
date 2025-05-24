@@ -24,7 +24,7 @@ const Index = () => {
         <Sidebar activeView={activeView} setActiveView={setActiveView} />
         
         {/* Main Content */}
-        <div className="flex-1 ml-64">
+        <div className="flex-1 transition-all duration-300" style={{ marginLeft: 'var(--sidebar-width, 256px)' }}>
           {activeView === 'pairs' && (
             <TokenList onSelectToken={setSelectedToken} />
           )}
