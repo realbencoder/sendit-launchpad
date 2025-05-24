@@ -27,7 +27,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
         </div>
         <div>
           <h1 className="text-xl font-bold bg-gradient-to-r from-abstract via-abstract-light to-neon-purple bg-clip-text text-transparent animate-glow">
-            Sendit.fun
+            Sendit
           </h1>
           <p className="text-xs text-gray-400">Launch fast. Send hard. No brakes.</p>
         </div>
