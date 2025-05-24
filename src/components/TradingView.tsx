@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { TrendingUp, Users, DollarSign, ExternalLink, MessageCircle, ArrowUpRight, ArrowDownRight, ArrowLeft, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -286,9 +285,6 @@ const TradingView = ({ token, onBack }: TradingViewProps) => {
                   E7MlL...pump 📋
                 </button>
               </div>
-              <button className="w-full py-2 px-3 bg-gray-700 text-gray-300 rounded text-sm hover:bg-gray-600">
-                ☁️ trade on MEXC ↗
-              </button>
             </div>
           </div>
 
