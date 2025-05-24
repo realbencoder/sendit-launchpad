@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { TrendingUp, Users, DollarSign, ExternalLink, MessageCircle } from 'lucide-react';
+import { TrendingUp, Users, DollarSign, ExternalLink, MessageCircle, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface Token {
@@ -167,12 +167,17 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
                 </div>
               </div>
               
-              <Button 
-                size="sm" 
-                className="bg-abstract hover:bg-abstract-dark text-black font-bold"
-              >
-                TRADE
-              </Button>
+              <div className="flex items-center space-x-2">
+                <button className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/50 transition-all duration-300">
+                  <Twitter className="w-4 h-4" />
+                </button>
+                <button className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/50 transition-all duration-300">
+                  <MessageCircle className="w-4 h-4" />
+                </button>
+                <button className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/50 transition-all duration-300">
+                  <ExternalLink className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         ))}
