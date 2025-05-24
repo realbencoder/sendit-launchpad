@@ -1,5 +1,4 @@
-
-import { Rocket, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { Rocket, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
@@ -21,7 +20,16 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
   const moreMenuItems = [
     { id: 'studio', label: 'Sendit Studio', icon: Palette },
     { id: 'pass', label: 'SendIt Pass', icon: GraduationCap },
+    { id: 'how-it-works', label: 'How it works', icon: HelpCircle },
     { id: 'support', label: 'Support', icon: LifeBuoy },
+  ];
+
+  const socialIcons = [
+    { id: 'twitter', label: 'Twitter', icon: Twitter, url: '#' },
+    { id: 'facebook', label: 'Facebook', icon: Facebook, url: '#' },
+    { id: 'instagram', label: 'Instagram', icon: Instagram, url: '#' },
+    { id: 'linkedin', label: 'LinkedIn', icon: Linkedin, url: '#' },
+    { id: 'youtube', label: 'YouTube', icon: Youtube, url: '#' },
   ];
 
   const isMoreItemActive = moreMenuItems.some(item => item.id === activeView);
@@ -134,6 +142,25 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                     </button>
                   );
                 })}
+                
+                {/* Social Icons */}
+                <div className="mt-4 pt-2 border-t border-gray-700/50">
+                  <div className="flex justify-center space-x-2">
+                    {socialIcons.map((social) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={social.id}
+                          href={social.url}
+                          className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/30 transition-all duration-300"
+                          title={social.label}
+                        >
+                          <Icon className="w-4 h-4" />
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             )}
           </div>
