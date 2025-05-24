@@ -1,5 +1,5 @@
 
-import { Rocket, Plus, TrendingUp, User, ArrowRightLeft, Zap } from 'lucide-react';
+import { Rocket, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface SidebarProps {
@@ -9,11 +9,12 @@ interface SidebarProps {
 
 const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
   const menuItems = [
-    { id: 'pairs', label: 'New Pairs', icon: Zap },
-    { id: 'create', label: 'Create Token', icon: Plus },
-    { id: 'trending', label: 'Trending', icon: TrendingUp },
-    { id: 'profile', label: 'My Profile', icon: User },
-    { id: 'bridge', label: 'Bridge', icon: ArrowRightLeft },
+    { id: 'pairs', label: 'Fresh Prints', icon: Rocket },
+    { id: 'create', label: 'Launch One', icon: Plus },
+    { id: 'profile', label: 'Sendor Hub', icon: User },
+    { id: 'studio', label: 'Sendit Studio', icon: Palette },
+    { id: 'pass', label: 'SendIt Pass', icon: GraduationCap },
+    { id: 'support', label: 'Support', icon: LifeBuoy },
   ];
 
   return (
@@ -22,8 +23,8 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
       <div className="flex items-center space-x-2 mb-8 px-2">
         <Rocket className="w-8 h-8 text-abstract" />
         <div>
-          <h1 className="text-xl font-bold text-white">SendIt.Up</h1>
-          <p className="text-xs text-gray-400">One Click. Full Send.</p>
+          <h1 className="text-xl font-bold text-white">Sendit.fun</h1>
+          <p className="text-xs text-gray-400">Launch fast. Send hard. No brakes.</p>
         </div>
       </div>
 

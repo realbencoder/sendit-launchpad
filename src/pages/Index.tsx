@@ -5,6 +5,10 @@ import LiveTicker from '../components/LiveTicker';
 import TokenList from '../components/TokenList';
 import CreateToken from '../components/CreateToken';
 import TradingView from '../components/TradingView';
+import SendorHub from '../components/SendorHub';
+import SenditStudio from '../components/SenditStudio';
+import SenditPass from '../components/SenditPass';
+import Support from '../components/Support';
 
 const Index = () => {
   const [activeView, setActiveView] = useState('pairs');
@@ -25,6 +29,10 @@ const Index = () => {
             <TokenList onSelectToken={setSelectedToken} />
           )}
           {activeView === 'create' && <CreateToken />}
+          {activeView === 'profile' && <SendorHub />}
+          {activeView === 'studio' && <SenditStudio />}
+          {activeView === 'pass' && <SenditPass />}
+          {activeView === 'support' && <Support />}
           {activeView === 'trading' && selectedToken && (
             <TradingView token={selectedToken} />
           )}
