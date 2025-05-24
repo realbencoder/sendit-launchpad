@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Upload, Rocket, Lock, Flame } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -28,7 +27,7 @@ const CreateToken = () => {
   };
 
   return (
-    <div className="p-6 mt-4 max-w-4xl mx-auto">
+    <div className="p-6 pt-20 max-w-4xl mx-auto">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">Create Your Meme</h1>
         <p className="text-gray-400">Deploy in 30 seconds. No coding required. Full send guaranteed.</p>
