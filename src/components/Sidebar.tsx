@@ -1,4 +1,5 @@
-import { Rocket, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle } from 'lucide-react';
+
+import { Home, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
@@ -12,7 +13,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const mainMenuItems = [
-    { id: 'pairs', label: 'Fresh Prints', icon: Rocket },
+    { id: 'pairs', label: 'Fresh Prints', icon: Home },
     { id: 'create', label: 'Launch One', icon: Plus },
     { id: 'profile', label: 'Sendor Hub', icon: User },
   ];
@@ -60,7 +61,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
       {/* Logo */}
       <div className={`flex items-center space-x-2 mb-8 px-2 ${sidebarCollapsed ? 'justify-center' : ''}`}>
         <div className="relative">
-          <Rocket className="w-8 h-8 text-abstract animate-float" />
+          <Home className="w-8 h-8 text-abstract animate-float" />
           <div className="absolute inset-0 w-8 h-8 text-abstract animate-pulse-neon opacity-50"></div>
         </div>
         {!sidebarCollapsed && (
