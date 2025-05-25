@@ -1,6 +1,9 @@
 import { useState } from 'react';
-import { TrendingUp, Users, DollarSign, ExternalLink, MessageCircle, Twitter, ChevronLeft, ChevronRight } from 'lucide-react';
+import { TrendingUp, Users, DollarSign, ExternalLink, MessageCircle, Twitter, ChevronLeft, ChevronRight, Search, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 interface Token {
   id: string;
@@ -22,6 +25,9 @@ interface TokenListProps {
 
 const TokenList = ({ onSelectToken }: TokenListProps) => {
   const [sortBy, setSortBy] = useState('marketCap');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilter, setActiveFilter] = useState('');
+  const [bondedSort, setBondedSort] = useState('newest-oldest');
   
   const mockTokens: Token[] = [
     {
@@ -313,6 +319,17 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
     onSelectToken(token);
   };
 
+  // Filter tokens based on search query and active filter
+  const filteredTokens = mockTokens.filter(token => {
+    const matchesSearch = token.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                         token.symbol.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    if (!matchesSearch) return false;
+    
+    // Apply active filter logic here
+    return true;
+  });
+
   return (
     <div className="pt-20">
       {/* Trending Bar */}
@@ -375,9 +392,67 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
           </div>
         </div>
 
+        {/* Search and Filter Section */}
+        <div className="mb-6 space-y-4">
+          {/* Search Bar */}
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <Input
+              type="text"
+              placeholder="Search by CA or ticker..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:border-abstract"
+            />
+          </div>
+
+          {/* Filter Options */}
+          <div className="flex flex-wrap items-center gap-4">
+            <ToggleGroup type="single" value={activeFilter} onValueChange={setActiveFilter}>
+              <ToggleGroupItem 
+                value="newest" 
+                className="bg-gray-800 border-gray-600 text-white hover:bg-gray-700 data-[state=on]:bg-abstract data-[state=on]:text-white"
+              >
+                Newest
+              </ToggleGroupItem>
+              <ToggleGroupItem 
+                value="trending" 
+                className="bg-gray-800 border-gray-600 text-white hover:bg-gray-700 data-[state=on]:bg-abstract data-[state=on]:text-white"
+              >
+                Trending
+              </ToggleGroupItem>
+              <ToggleGroupItem 
+                value="bonded" 
+                className="bg-gray-800 border-gray-600 text-white hover:bg-gray-700 data-[state=on]:bg-abstract data-[state=on]:text-white"
+              >
+                Bonded
+              </ToggleGroupItem>
+              <ToggleGroupItem 
+                value="top-market-cap" 
+                className="bg-gray-800 border-gray-600 text-white hover:bg-gray-700 data-[state=on]:bg-abstract data-[state=on]:text-white"
+              >
+                Top Market Cap
+              </ToggleGroupItem>
+            </ToggleGroup>
+
+            {/* Bonded Age Sort - Only show when bonded filter is active */}
+            {activeFilter === 'bonded' && (
+              <Select value={bondedSort} onValueChange={setBondedSort}>
+                <SelectTrigger className="w-48 bg-gray-800 border-gray-600 text-white">
+                  <SelectValue placeholder="Sort by age" />
+                </SelectTrigger>
+                <SelectContent className="bg-gray-800 border-gray-600">
+                  <SelectItem value="newest-oldest" className="text-white hover:bg-gray-700">Newest to Oldest</SelectItem>
+                  <SelectItem value="oldest-newest" className="text-white hover:bg-gray-700">Oldest to Newest</SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          </div>
+        </div>
+
         {/* Token Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {mockTokens.map((token) => (
+          {filteredTokens.map((token) => (
             <div 
               key={token.id}
               className="bg-gray-850 border border-gray-700 rounded-xl p-4 hover:border-abstract/50 transition-all duration-200 cursor-pointer group"
