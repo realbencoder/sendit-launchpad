@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Upload, Rocket, Lock, Flame } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -228,23 +229,13 @@ const CreateToken = () => {
           <div className="bg-gradient-to-r from-abstract to-abstract-dark p-1 rounded-xl">
             <div className="bg-gray-850 rounded-lg p-6">
               <div className="text-center">
-                <h3 className="text-white font-bold text-lg mb-2">Ready to Send It?</h3>
-                <p className="text-gray-400 text-sm mb-4">
-                  Deploy cost: ~0.001 ETH + gas
-                </p>
-                
                 <Button
                   size="lg"
                   className="w-full bg-abstract hover:bg-abstract-dark text-black font-bold text-lg py-3"
                   disabled={!tokenData.name || !tokenData.symbol}
                 >
-                  <Rocket className="w-5 h-5 mr-2" />
-                  SEND IT UP 🚀
+                  Deploy
                 </Button>
-                
-                <p className="text-xs text-gray-500 mt-2">
-                  No rugs. No backdoors. Full degen.
-                </p>
               </div>
             </div>
           </div>
