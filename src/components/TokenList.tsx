@@ -305,7 +305,6 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
     }
   ];
 
-  // Additional trending tokens for the top bar
   const trendingTokens = [
     { name: 'gork', symbol: 'gork', marketCap: '$574.9K', change24h: 2.75, image: 'https://images.unsplash.com/photo-1493962853295-0fd70327578a?w=32&h=32&fit=crop&crop=face' },
     { name: 'The Swarm', symbol: 'SWARM', marketCap: '$926.2K', change24h: -1.2, image: 'https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=32&h=32&fit=crop&crop=face' },
@@ -371,27 +370,6 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
       </div>
 
       <div className="p-6">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h1 className="text-2xl font-bold text-white">New Pairs</h1>
-            <p className="text-gray-400">Fresh memes. No mercy.</p>
-          </div>
-          
-          <div className="flex space-x-2">
-            <select 
-              value={sortBy} 
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded-lg"
-            >
-              <option value="marketCap">Market Cap</option>
-              <option value="volume">Volume</option>
-              <option value="newest">Newest</option>
-              <option value="trending">Trending</option>
-            </select>
-          </div>
-        </div>
-
         {/* Search and Filter Section */}
         <div className="mb-6 space-y-4">
           {/* Search Bar */}
