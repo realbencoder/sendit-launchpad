@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { TrendingUp, Users, DollarSign, ExternalLink, MessageCircle, Twitter, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -97,7 +98,7 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
       {/* Trending Bar */}
       <div className="bg-gray-800 border-b border-gray-700 py-3 px-6">
         <div className="flex items-center space-x-4">
-          <h2 className="text-white font-semibold text-sm whitespace-nowrap">now trending</h2>
+          <h2 className="text-white font-semibold text-sm whitespace-nowrap">now sending</h2>
           <div className="flex items-center space-x-2">
             <button className="p-1 text-gray-400 hover:text-white">
               <ChevronLeft className="w-4 h-4" />
