@@ -1,6 +1,14 @@
-import { Home, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle, Rocket } from 'lucide-react';
+
+import { Home, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle, Rocket, EllipsisVertical } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 interface SidebarProps {
   activeView: string;
@@ -104,7 +112,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
           );
         })}
 
-        {/* More Section */}
+        {/* More Section - Expanded */}
         {!sidebarCollapsed && (
           <div>
             <button
@@ -172,26 +180,58 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
           </div>
         )}
 
-        {/* Collapsed More Items */}
-        {sidebarCollapsed && moreMenuItems.map((item) => {
-          const Icon = item.icon;
-          return (
-            <button
-              key={item.id}
-              onClick={() => setActiveView(item.id)}
-              className={`w-full flex items-center justify-center px-2 py-3 rounded-lg transition-all duration-300 group ${
-                activeView === item.id
-                  ? 'bg-gradient-to-r from-abstract/20 to-neon-purple/20 text-abstract border border-abstract/40 neon-glow'
-                  : 'text-gray-300 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 hover:text-white hover:border-abstract/20 border border-transparent'
-              }`}
-              title={item.label}
-            >
-              <Icon className={`w-5 h-5 transition-all duration-300 ${
-                activeView === item.id ? 'text-abstract' : 'group-hover:text-abstract'
-              }`} />
-            </button>
-          );
-        })}
+        {/* More Dropdown - Collapsed */}
+        {sidebarCollapsed && (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className={`w-full flex items-center justify-center px-2 py-3 rounded-lg transition-all duration-300 group ${
+                  isMoreItemActive
+                    ? 'bg-gradient-to-r from-abstract/20 to-neon-purple/20 text-abstract border border-abstract/40 neon-glow'
+                    : 'text-gray-300 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 hover:text-white hover:border-abstract/20 border border-transparent'
+                }`}
+                title="More"
+              >
+                <EllipsisVertical className={`w-5 h-5 transition-all duration-300 ${
+                  isMoreItemActive ? 'text-abstract' : 'group-hover:text-abstract'
+                }`} />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent side="right" className="bg-gray-800 border-gray-700 text-white">
+              {moreMenuItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <DropdownMenuItem
+                    key={item.id}
+                    onClick={() => setActiveView(item.id)}
+                    className={`flex items-center space-x-2 cursor-pointer hover:bg-gray-700 ${
+                      activeView === item.id ? 'bg-gray-700 text-abstract' : ''
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span>{item.label}</span>
+                  </DropdownMenuItem>
+                );
+              })}
+              <DropdownMenuSeparator className="bg-gray-700" />
+              <div className="flex justify-center space-x-2 p-2">
+                {socialIcons.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.id}
+                      href={social.url}
+                      className="p-1 rounded text-gray-400 hover:text-abstract transition-colors"
+                      title={social.label}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  );
+                })}
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )}
       </nav>
 
       {/* Connect Wallet */}
