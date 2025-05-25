@@ -2,7 +2,7 @@
 const Footer = () => {
   return (
     <footer className="bg-gray-900 border-t border-gray-800 py-4 px-6">
-      <div className="flex justify-center space-x-4 text-sm text-gray-400">
+      <div className="max-w-7xl mx-auto flex justify-center space-x-4 text-sm text-gray-400">
         <a 
           href="#" 
           className="hover:text-gray-300 transition-colors underline"
