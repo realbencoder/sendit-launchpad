@@ -10,6 +10,7 @@ import SenditStudio from '../components/SenditStudio';
 import SenditPass from '../components/SenditPass';
 import Support from '../components/Support';
 import HowItWorks from '../components/HowItWorks';
+import Footer from '../components/Footer';
 
 const Index = () => {
   const [activeView, setActiveView] = useState('pairs');
@@ -21,11 +22,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       {/* Live Ticker */}
       <LiveTicker />
       
-      <div className="flex">
+      <div className="flex flex-1">
         {/* Sidebar */}
         <Sidebar activeView={activeView} setActiveView={setActiveView} />
         
@@ -48,6 +49,9 @@ const Index = () => {
           )}
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
