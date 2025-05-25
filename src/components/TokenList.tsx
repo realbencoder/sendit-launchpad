@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { TrendingUp, Users, DollarSign, ExternalLink, MessageCircle, Twitter, ChevronLeft, ChevronRight, Search, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -394,10 +395,10 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
                 Newest
               </ToggleGroupItem>
               <ToggleGroupItem 
-                value="trending" 
+                value="sending" 
                 className="bg-gray-800 border-gray-600 text-white hover:bg-gray-700 data-[state=on]:bg-abstract data-[state=on]:text-white"
               >
-                Trending
+                Sending
               </ToggleGroupItem>
               <ToggleGroupItem 
                 value="bonded" 
