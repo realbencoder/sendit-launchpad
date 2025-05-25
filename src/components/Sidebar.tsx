@@ -1,7 +1,6 @@
-
 import { Home, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface SidebarProps {
   activeView: string;
@@ -11,6 +10,14 @@ interface SidebarProps {
 const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
   const [moreExpanded, setMoreExpanded] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  // Update CSS custom property when sidebar state changes
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--sidebar-width', 
+      sidebarCollapsed ? '80px' : '256px'
+    );
+  }, [sidebarCollapsed]);
 
   const mainMenuItems = [
     { id: 'pairs', label: 'Fresh Prints', icon: Home },
@@ -41,7 +48,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
   };
 
   return (
-    <div className={`fixed left-0 top-16 h-full bg-gradient-to-b from-gray-875 to-gray-925 border-r border-abstract/20 p-4 cyber-grid transition-all duration-300 ${
+    <div className={`fixed left-0 top-16 h-full bg-gradient-to-b from-gray-875 to-gray-925 border-r border-abstract/20 p-4 cyber-grid transition-all duration-300 z-20 ${
       sidebarCollapsed ? 'w-20' : 'w-64'
     }`}>
       {/* Toggle Button */}
