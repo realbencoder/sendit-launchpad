@@ -407,10 +407,10 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
                 Bonded
               </ToggleGroupItem>
               <ToggleGroupItem 
-                value="top-market-cap" 
+                value="progress" 
                 className="bg-gray-800 border-gray-600 text-white hover:bg-gray-700 data-[state=on]:bg-abstract data-[state=on]:text-white"
               >
-                Top Market Cap
+                Progress
               </ToggleGroupItem>
             </ToggleGroup>
 
