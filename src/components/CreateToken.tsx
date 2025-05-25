@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react';
 import { Upload, Rocket, Lock, Flame, TrendingUp, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -16,8 +14,7 @@ const CreateToken = () => {
     twitterLink: '',
     website: '',
     lockSupply: false,
-    buyTrending: false,
-    maxWalletPercent: 2
+    buyTrending: false
   });
 
   const [preview, setPreview] = useState(false);
@@ -184,22 +181,6 @@ const CreateToken = () => {
                   className="w-5 h-5 text-abstract accent-abstract"
                 />
               </div>
-
-              <div>
-                <label className="block text-gray-300 text-sm font-medium mb-2">
-                  Max Wallet % (Anti-whale)
-                </label>
-                <select
-                  value={tokenData.maxWalletPercent}
-                  onChange={(e) => setTokenData({ ...tokenData, maxWalletPercent: Number(e.target.value) })}
-                  className="w-full bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded-lg focus:border-abstract/50 transition-colors"
-                >
-                  <option value={1}>1% (Ultra Safe)</option>
-                  <option value={2}>2% (Recommended)</option>
-                  <option value={5}>5% (Moderate)</option>
-                  <option value={10}>10% (Degen Mode)</option>
-                </select>
-              </div>
             </div>
           </div>
         </div>
@@ -267,4 +248,3 @@ const CreateToken = () => {
 };
 
 export default CreateToken;
-
