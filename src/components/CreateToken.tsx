@@ -1,9 +1,9 @@
-
 import { useState } from 'react';
 import { Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import TokenPurchaseModal from './TokenPurchaseModal';
 
 const CreateToken = () => {
   const [tokenData, setTokenData] = useState({
@@ -15,11 +15,19 @@ const CreateToken = () => {
     twitterLink: '',
     website: ''
   });
+  
+  const [showPurchaseModal, setShowPurchaseModal] = useState(false);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       setTokenData({ ...tokenData, image: file });
+    }
+  };
+
+  const handleDeploy = () => {
+    if (tokenData.name && tokenData.symbol) {
+      setShowPurchaseModal(true);
     }
   };
 
@@ -131,11 +139,19 @@ const CreateToken = () => {
             size="lg"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium"
             disabled={!tokenData.name || !tokenData.symbol}
+            onClick={handleDeploy}
           >
             login to create coin
           </Button>
         </div>
       </div>
+
+      <TokenPurchaseModal
+        isOpen={showPurchaseModal}
+        onClose={() => setShowPurchaseModal(false)}
+        tokenSymbol={tokenData.symbol}
+        tokenName={tokenData.name}
+      />
     </div>
   );
 };
