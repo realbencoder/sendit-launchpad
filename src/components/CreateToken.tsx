@@ -1,6 +1,7 @@
 
+
 import { useState } from 'react';
-import { Upload, Rocket, Lock, Flame } from 'lucide-react';
+import { Upload, Rocket, Lock, Flame, TrendingUp, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -14,7 +15,8 @@ const CreateToken = () => {
     telegramLink: '',
     twitterLink: '',
     website: '',
-    autoLPBurn: false,
+    lockSupply: false,
+    buyTrending: false,
     maxWalletPercent: 2
   });
 
@@ -143,24 +145,43 @@ const CreateToken = () => {
             </div>
           </div>
 
-          {/* Security Settings */}
-          <div className="bg-gray-850 border border-gray-700 rounded-xl p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Security Settings</h2>
+          {/* Launch Boost Options */}
+          <div className="bg-gradient-to-br from-abstract/10 to-purple-600/10 border border-abstract/30 rounded-xl p-6">
+            <div className="flex items-center space-x-2 mb-4">
+              <Zap className="w-6 h-6 text-abstract" />
+              <h2 className="text-xl font-bold text-white">Launch Boost</h2>
+            </div>
             
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+              <div className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-abstract/20 hover:border-abstract/40 transition-colors">
                 <div className="flex items-center space-x-3">
-                  <Flame className="w-5 h-5 text-orange-400" />
+                  <Lock className="w-5 h-5 text-blue-400" />
                   <div>
-                    <p className="text-white font-medium">Auto-burn LP</p>
-                    <p className="text-gray-400 text-sm">Liquidity will be burned on launch</p>
+                    <p className="text-white font-medium">Lock Dev Supply</p>
+                    <p className="text-gray-400 text-sm">Build trust by locking your tokens</p>
                   </div>
                 </div>
                 <input
                   type="checkbox"
-                  checked={tokenData.autoLPBurn}
-                  onChange={(e) => setTokenData({ ...tokenData, autoLPBurn: e.target.checked })}
-                  className="w-5 h-5 text-abstract"
+                  checked={tokenData.lockSupply}
+                  onChange={(e) => setTokenData({ ...tokenData, lockSupply: e.target.checked })}
+                  className="w-5 h-5 text-abstract accent-abstract"
+                />
+              </div>
+
+              <div className="flex items-center justify-between p-4 bg-gray-800/50 rounded-lg border border-abstract/20 hover:border-abstract/40 transition-colors">
+                <div className="flex items-center space-x-3">
+                  <TrendingUp className="w-5 h-5 text-green-400" />
+                  <div>
+                    <p className="text-white font-medium">Buy Trending Spot</p>
+                    <p className="text-gray-400 text-sm">Get featured and boost visibility</p>
+                  </div>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={tokenData.buyTrending}
+                  onChange={(e) => setTokenData({ ...tokenData, buyTrending: e.target.checked })}
+                  className="w-5 h-5 text-abstract accent-abstract"
                 />
               </div>
 
@@ -171,7 +192,7 @@ const CreateToken = () => {
                 <select
                   value={tokenData.maxWalletPercent}
                   onChange={(e) => setTokenData({ ...tokenData, maxWalletPercent: Number(e.target.value) })}
-                  className="w-full bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded-lg"
+                  className="w-full bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded-lg focus:border-abstract/50 transition-colors"
                 >
                   <option value={1}>1% (Ultra Safe)</option>
                   <option value={2}>2% (Recommended)</option>
@@ -246,3 +267,4 @@ const CreateToken = () => {
 };
 
 export default CreateToken;
+
