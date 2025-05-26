@@ -39,6 +39,36 @@
     /* Dynamic sidebar width - defaults to expanded */
     --sidebar-width: 256px;
   }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 195 100% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 195 100% 50%;
+  }
 }
 
 @layer base {
@@ -47,11 +77,17 @@
   }
 
   body {
-    @apply bg-gradient-to-br from-gray-925 via-gray-900 to-gray-875 text-foreground font-sans;
+    @apply bg-gradient-to-br from-gray-925 via-gray-900 to-gray-875 dark:from-gray-925 dark:via-gray-900 dark:to-gray-875 light:from-gray-50 light:via-white light:to-gray-100 text-foreground font-sans;
     background-size: 100px 100px;
     background-image: 
       linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+  }
+  
+  .light body {
+    background-image: 
+      linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
   }
   
   /* Custom scrollbar */
@@ -60,7 +96,7 @@
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-gray-800;
+    @apply bg-gray-800 dark:bg-gray-800 light:bg-gray-200;
   }
   
   ::-webkit-scrollbar-thumb {
@@ -88,10 +124,16 @@
   }
 
   .cyber-card {
-    @apply bg-gradient-to-br from-gray-850 via-gray-875 to-gray-900 border border-abstract/30 rounded-lg;
+    @apply bg-gradient-to-br from-gray-850 via-gray-875 to-gray-900 dark:from-gray-850 dark:via-gray-875 dark:to-gray-900 light:from-white light:via-gray-50 light:to-gray-100 border border-abstract/30 dark:border-abstract/30 light:border-gray-300 rounded-lg;
     background-image: 
       linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
     background-size: 20px 20px;
+  }
+
+  .light .cyber-card {
+    background-image: 
+      linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
   }
 }

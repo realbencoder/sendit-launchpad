@@ -2,6 +2,7 @@
 import { Home, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle, EllipsisVertical } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
+import ThemeToggle from './ThemeToggle';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -56,14 +57,15 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
   };
 
   return (
-    <div className={`fixed left-0 top-16 h-full bg-gradient-to-b from-gray-875 to-gray-925 border-r border-abstract/20 p-4 cyber-grid transition-all duration-300 z-20 ${
+    <div className={`fixed left-0 top-16 h-full bg-gradient-to-b from-gray-875 to-gray-925 dark:from-gray-875 dark:to-gray-925 light:from-gray-50 light:to-gray-100 border-r border-abstract/20 dark:border-abstract/20 light:border-gray-300 p-4 cyber-grid transition-all duration-300 z-20 ${
       sidebarCollapsed ? 'w-20' : 'w-64'
     }`}>
-      {/* Toggle Button */}
-      <div className="flex justify-end mb-4">
+      {/* Toggle Button and Theme Toggle */}
+      <div className="flex justify-between items-center mb-4">
+        {!sidebarCollapsed && <ThemeToggle />}
         <button
           onClick={handleToggleSidebar}
-          className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-300"
+          className="p-2 rounded-lg text-gray-300 dark:text-gray-300 light:text-gray-600 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-gray-800/50 dark:hover:bg-gray-800/50 light:hover:bg-gray-200 transition-all duration-300"
         >
           {sidebarCollapsed ? (
             <PanelLeftOpen className="w-5 h-5" />
@@ -71,6 +73,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
             <PanelLeftClose className="w-5 h-5" />
           )}
         </button>
+        {sidebarCollapsed && <ThemeToggle />}
       </div>
 
       {/* Logo */}
@@ -88,7 +91,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
             <h1 className="text-xl font-bold bg-gradient-to-r from-abstract via-abstract-light to-neon-purple bg-clip-text text-transparent animate-glow">
               Sendit
             </h1>
-            <p className="text-xs text-gray-400">Launch fast. Send hard. No brakes.</p>
+            <p className="text-xs text-gray-400 dark:text-gray-400 light:text-gray-600">Launch fast. Send hard. No brakes.</p>
           </div>
         )}
       </div>
@@ -104,7 +107,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
               className={`w-full flex items-center ${sidebarCollapsed ? 'justify-center px-2 py-3' : 'space-x-3 px-4 py-3'} rounded-lg transition-all duration-300 group ${
                 activeView === item.id
                   ? 'bg-gradient-to-r from-abstract/20 to-neon-purple/20 text-abstract border border-abstract/40 neon-glow'
-                  : 'text-gray-300 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 hover:text-white hover:border-abstract/20 border border-transparent'
+                  : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 dark:hover:from-gray-800/50 dark:hover:to-gray-750/50 light:hover:from-gray-200 light:hover:to-gray-300 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:border-abstract/20 border border-transparent'
               }`}
               title={sidebarCollapsed ? item.label : undefined}
             >
@@ -124,7 +127,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
               className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 group ${
                 isMoreItemActive
                   ? 'bg-gradient-to-r from-abstract/20 to-neon-purple/20 text-abstract border border-abstract/40 neon-glow'
-                  : 'text-gray-300 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 hover:text-white hover:border-abstract/20 border border-transparent'
+                  : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 dark:hover:from-gray-800/50 dark:hover:to-gray-750/50 light:hover:from-gray-200 light:hover:to-gray-300 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:border-abstract/20 border border-transparent'
               }`}
             >
               <MoreHorizontal className={`w-5 h-5 transition-all duration-300 ${
@@ -150,7 +153,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                       className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-all duration-300 group ${
                         activeView === item.id
                           ? 'bg-gradient-to-r from-abstract/30 to-neon-purple/30 text-abstract border border-abstract/40'
-                          : 'text-gray-400 hover:bg-gradient-to-r hover:from-gray-800/30 hover:to-gray-750/30 hover:text-white hover:border-abstract/20 border border-transparent'
+                          : 'text-gray-400 dark:text-gray-400 light:text-gray-600 hover:bg-gradient-to-r hover:from-gray-800/30 hover:to-gray-750/30 dark:hover:from-gray-800/30 dark:hover:to-gray-750/30 light:hover:from-gray-200/50 light:hover:to-gray-300/50 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:border-abstract/20 border border-transparent'
                       }`}
                     >
                       <Icon className={`w-4 h-4 transition-all duration-300 ${
@@ -162,7 +165,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                 })}
                 
                 {/* Social Icons */}
-                <div className="mt-4 pt-2 border-t border-gray-700/50">
+                <div className="mt-4 pt-2 border-t border-gray-700/50 dark:border-gray-700/50 light:border-gray-300">
                   <div className="flex justify-center space-x-2">
                     {socialIcons.map((social) => {
                       const Icon = social.icon;
@@ -170,7 +173,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                         <a
                           key={social.id}
                           href={social.url}
-                          className="p-2 rounded-lg text-gray-400 hover:text-abstract hover:bg-gray-800/30 transition-all duration-300"
+                          className="p-2 rounded-lg text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-abstract hover:bg-gray-800/30 dark:hover:bg-gray-800/30 light:hover:bg-gray-200/50 transition-all duration-300"
                           title={social.label}
                         >
                           <Icon className="w-4 h-4" />
@@ -192,7 +195,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                 className={`w-full flex items-center justify-center px-2 py-3 rounded-lg transition-all duration-300 group ${
                   isMoreItemActive
                     ? 'bg-gradient-to-r from-abstract/20 to-neon-purple/20 text-abstract border border-abstract/40 neon-glow'
-                    : 'text-gray-300 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 hover:text-white hover:border-abstract/20 border border-transparent'
+                    : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 dark:hover:from-gray-800/50 dark:hover:to-gray-750/50 light:hover:from-gray-200 light:hover:to-gray-300 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:border-abstract/20 border border-transparent'
                 }`}
                 title="More"
               >
@@ -201,15 +204,15 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                 }`} />
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent side="right" className="bg-gray-800 border-gray-700 text-white">
+            <DropdownMenuContent side="right" className="bg-gray-800 dark:bg-gray-800 light:bg-white border-gray-700 dark:border-gray-700 light:border-gray-300 text-white dark:text-white light:text-gray-900">
               {moreMenuItems.map((item) => {
                 const Icon = item.icon;
                 return (
                   <DropdownMenuItem
                     key={item.id}
                     onClick={() => setActiveView(item.id)}
-                    className={`flex items-center space-x-2 cursor-pointer hover:bg-gray-700 ${
-                      activeView === item.id ? 'bg-gray-700 text-abstract' : ''
+                    className={`flex items-center space-x-2 cursor-pointer hover:bg-gray-700 dark:hover:bg-gray-700 light:hover:bg-gray-100 ${
+                      activeView === item.id ? 'bg-gray-700 dark:bg-gray-700 light:bg-gray-100 text-abstract' : ''
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -217,7 +220,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                   </DropdownMenuItem>
                 );
               })}
-              <DropdownMenuSeparator className="bg-gray-700" />
+              <DropdownMenuSeparator className="bg-gray-700 dark:bg-gray-700 light:bg-gray-300" />
               <div className="flex justify-center space-x-2 p-2">
                 {socialIcons.map((social) => {
                   const Icon = social.icon;
@@ -225,7 +228,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                     <a
                       key={social.id}
                       href={social.url}
-                      className="p-1 rounded text-gray-400 hover:text-abstract transition-colors"
+                      className="p-1 rounded text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-abstract transition-colors"
                       title={social.label}
                     >
                       <Icon className="w-4 h-4" />
