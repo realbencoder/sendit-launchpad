@@ -1,5 +1,5 @@
 
-import { Home, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle, Rocket, EllipsisVertical } from 'lucide-react';
+import { Home, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle, EllipsisVertical } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 import {
@@ -76,8 +76,12 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
       {/* Logo */}
       <div className={`flex items-center space-x-2 mb-8 px-2 ${sidebarCollapsed ? 'justify-center' : ''}`}>
         <div className="relative">
-          <Rocket className="w-8 h-8 text-abstract animate-float" />
-          <div className="absolute inset-0 w-8 h-8 text-abstract animate-pulse-neon opacity-50"></div>
+          <img 
+            src="/lovable-uploads/34b6aa01-d621-4546-90ce-8ed8e20de1a7.png" 
+            alt="Sendit Logo" 
+            className="w-8 h-8 object-contain animate-float"
+          />
+          <div className="absolute inset-0 w-8 h-8 animate-pulse-neon opacity-50"></div>
         </div>
         {!sidebarCollapsed && (
           <div>
