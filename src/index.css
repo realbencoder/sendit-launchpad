@@ -41,33 +41,33 @@
   }
 
   .light {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 0 0% 98%;
+    --foreground: 240 10% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 240 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 240 10% 15%;
 
-    --primary: 195 100% 50%;
+    --primary: 195 100% 40%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 210 40% 95%;
+    --secondary-foreground: 240 5.9% 20%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 210 40% 92%;
+    --muted-foreground: 240 3.8% 35%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 210 40% 90%;
+    --accent-foreground: 240 5.9% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 195 100% 50%;
+    --border: 210 20% 80%;
+    --input: 210 20% 88%;
+    --ring: 195 100% 40%;
   }
 }
 
@@ -77,18 +77,19 @@
   }
 
   body {
-    @apply bg-gradient-to-br from-gray-925 via-gray-900 to-gray-875 text-foreground font-sans;
-    background-size: 100px 100px;
+    @apply bg-gradient-to-br from-gray-950 via-black to-gray-900 text-foreground font-sans;
+    background-size: 80px 80px;
     background-image: 
-      linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
   }
   
   .light body {
-    @apply bg-gradient-to-br from-gray-50 via-white to-gray-100;
+    @apply bg-gradient-to-br from-blue-50 via-white to-cyan-50;
+    background-size: 60px 60px;
     background-image: 
-      linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
+      linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
   }
   
   /* Custom scrollbar */
@@ -97,19 +98,27 @@
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-gray-800;
+    @apply bg-gray-900;
   }
   
   .light ::-webkit-scrollbar-track {
-    @apply bg-gray-200;
+    @apply bg-gray-100;
   }
   
   ::-webkit-scrollbar-thumb {
     @apply bg-gradient-to-b from-abstract to-abstract-dark rounded-full;
   }
   
+  .light ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-blue-400 to-blue-600 rounded-full;
+  }
+  
   ::-webkit-scrollbar-thumb:hover {
     @apply from-abstract-light to-abstract;
+  }
+  
+  .light ::-webkit-scrollbar-thumb:hover {
+    @apply from-blue-300 to-blue-500;
   }
 }
 
@@ -122,24 +131,36 @@
     @apply shadow-lg;
     box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
   }
+  
+  .light .neon-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  }
 
   .neon-border {
     @apply border border-abstract/50;
     box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
   }
+  
+  .light .neon-border {
+    @apply border border-blue-400/50;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.15);
+  }
 
   .cyber-card {
-    @apply bg-gradient-to-br from-gray-850 via-gray-875 to-gray-900 border border-abstract/30 rounded-lg;
+    @apply bg-gradient-to-br from-gray-900 via-gray-850 to-gray-950 border border-abstract/30 rounded-lg;
     background-image: 
-      linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(rgba(0, 217, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.08) 1px, transparent 1px);
     background-size: 20px 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
   }
 
   .light .cyber-card {
-    @apply bg-gradient-to-br from-white via-gray-50 to-gray-100 border-gray-300;
+    @apply bg-gradient-to-br from-white via-blue-50 to-slate-50 border-blue-200;
     background-image: 
-      linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
+      linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+    background-size: 15px 15px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   }
 }
