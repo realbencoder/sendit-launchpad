@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Rocket, Zap, TrendingUp, Users } from 'lucide-react';
+import { Rocket, Zap, TrendingUp, Users, Play } from 'lucide-react';
 
 const HowItWorks = () => {
   const steps = [
@@ -35,6 +35,28 @@ const HowItWorks = () => {
         <p className="text-xl text-gray-300 max-w-2xl mx-auto">
           Launch fast. Send hard. No brakes. Create and trade tokens in just a few simple steps.
         </p>
+      </div>
+
+      {/* Video Placeholder Section */}
+      <div className="mb-16">
+        <div className="cyber-card p-8 text-center">
+          <h2 className="text-2xl font-bold text-white mb-6">Watch How It Works</h2>
+          <div className="relative w-full max-w-4xl mx-auto">
+            <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg border border-gray-700 flex items-center justify-center group hover:from-gray-700 hover:to-gray-800 transition-all duration-300 cursor-pointer">
+              <div className="text-center">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-r from-abstract/20 to-neon-purple/20 flex items-center justify-center mx-auto mb-4 group-hover:from-abstract/30 group-hover:to-neon-purple/30 transition-all duration-300">
+                  <Play className="w-10 h-10 text-abstract fill-current" />
+                </div>
+                <p className="text-lg text-gray-300 group-hover:text-white transition-colors">
+                  Click to watch our platform demo
+                </p>
+                <p className="text-sm text-gray-500 mt-2">
+                  Learn how to create and trade tokens in under 3 minutes
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
