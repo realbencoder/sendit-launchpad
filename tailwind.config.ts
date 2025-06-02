@@ -52,11 +52,27 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Cool modern brand colors
+				// Updated brand colors based on SENDOR branding
+				sendor: {
+					DEFAULT: '#01BC3B',
+					dark: '#019930',
+					light: '#33D265',
+					50: '#E8FFF0',
+					100: '#D1FFE1',
+					200: '#A3FFC3',
+					300: '#75FFA5',
+					400: '#47FF87',
+					500: '#01BC3B',
+					600: '#019930',
+					700: '#017725',
+					800: '#01541A',
+					900: '#01320F'
+				},
+				// Keep abstract for backward compatibility
 				abstract: {
-					DEFAULT: '#00D9FF',
-					dark: '#00B8E6',
-					light: '#33E1FF',
+					DEFAULT: '#01BC3B',
+					dark: '#019930',
+					light: '#33D265',
 					purple: '#8B5CF6',
 					pink: '#EC4899'
 				},
@@ -64,7 +80,7 @@ export default {
 					blue: '#0EA5E9',
 					purple: '#8B5CF6',
 					pink: '#EC4899',
-					green: '#10B981',
+					green: '#01BC3B',
 					yellow: '#F59E0B'
 				},
 				gray: {
@@ -83,23 +99,23 @@ export default {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-				'cyber-grid': "linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px)"
+				'cyber-grid': "linear-gradient(rgba(1, 188, 59, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(1, 188, 59, 0.1) 1px, transparent 1px)"
 			},
 			keyframes: {
-				'pulse-neon': {
+				'pulse-sendor': {
 					'0%, 100%': {
-						boxShadow: '0 0 5px #00D9FF, 0 0 10px #00D9FF, 0 0 15px #00D9FF',
+						boxShadow: '0 0 5px #01BC3B, 0 0 10px #01BC3B, 0 0 15px #01BC3B',
 					},
 					'50%': {
-						boxShadow: '0 0 10px #00D9FF, 0 0 20px #00D9FF, 0 0 30px #00D9FF',
+						boxShadow: '0 0 10px #01BC3B, 0 0 20px #01BC3B, 0 0 30px #01BC3B',
 					},
 				},
 				'glow': {
 					'from': {
-						textShadow: '0 0 10px #00D9FF, 0 0 20px #00D9FF, 0 0 30px #00D9FF',
+						textShadow: '0 0 10px #01BC3B, 0 0 20px #01BC3B, 0 0 30px #01BC3B',
 					},
 					'to': {
-						textShadow: '0 0 20px #00D9FF, 0 0 30px #00D9FF, 0 0 40px #00D9FF',
+						textShadow: '0 0 20px #01BC3B, 0 0 30px #01BC3B, 0 0 40px #01BC3B',
 					},
 				},
 				'float': {
@@ -146,7 +162,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'pulse-abstract': 'pulse-abstract 2s ease-in-out infinite',
 				'slide-up': 'slide-up 0.3s ease-out',
-				'pulse-neon': 'pulse-neon 2s ease-in-out infinite',
+				'pulse-neon': 'pulse-sendor 2s ease-in-out infinite',
 				'glow': 'glow 2s ease-in-out infinite alternate',
 				'float': 'float 3s ease-in-out infinite'
 			},

@@ -24,14 +24,14 @@ const SendorHub = () => {
       {/* Profile Section */}
       <div className="bg-gray-850 dark:bg-gray-850 light:bg-white border border-gray-700 dark:border-gray-700 light:border-gray-200 rounded-lg p-6 mb-6">
         <div className="flex items-center space-x-4 mb-6">
-          <div className="bg-abstract/20 rounded-full p-3">
-            <User className="w-10 h-10 text-abstract" />
+          <div className="bg-sendor/20 rounded-full p-3">
+            <User className="w-10 h-10 text-sendor" />
           </div>
           <div>
             <h2 className="text-xl font-bold text-white dark:text-white light:text-gray-900">0xe5e...3133</h2>
             <div className="flex items-center space-x-2 mt-1">
-              <span className="bg-abstract/20 text-abstract text-xs py-1 px-2 rounded-full flex items-center">
-                <Award className="w-3 h-3 mr-1" /> SendIt Pass Holder
+              <span className="bg-sendor/20 text-sendor text-xs py-1 px-2 rounded-full flex items-center">
+                <Award className="w-3 h-3 mr-1" /> Sendor Pass Holder
               </span>
             </div>
           </div>
@@ -91,14 +91,14 @@ const SendorHub = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm">Win Rate</p>
-                <p className="text-xl font-bold text-abstract">
+                <p className="text-xl font-bold text-sendor">
                   {pnlData.winRate}%
                 </p>
                 <p className="text-sm text-gray-500">
                   {pnlData.totalTrades} trades
                 </p>
               </div>
-              <Award className="w-6 h-6 text-abstract" />
+              <Award className="w-6 h-6 text-sendor" />
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@ const SendorHub = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-gray-850 dark:bg-gray-850 light:bg-white border border-gray-700 dark:border-gray-700 light:border-gray-200 rounded-lg p-6">
           <div className="flex items-center space-x-2 mb-4">
-            <Coins className="w-5 h-5 text-abstract" />
+            <Coins className="w-5 h-5 text-sendor" />
             <h3 className="text-lg font-bold text-white dark:text-white light:text-gray-900">Coins Launched</h3>
           </div>
           <div className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-center py-8">
@@ -147,7 +147,7 @@ const SendorHub = () => {
         
         <div className="bg-gray-850 dark:bg-gray-850 light:bg-white border border-gray-700 dark:border-gray-700 light:border-gray-200 rounded-lg p-6">
           <div className="flex items-center space-x-2 mb-4">
-            <Award className="w-5 h-5 text-abstract" />
+            <Award className="w-5 h-5 text-sendor" />
             <h3 className="text-lg font-bold text-white dark:text-white light:text-gray-900">Coins Bought</h3>
           </div>
           <div className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-center py-8">
