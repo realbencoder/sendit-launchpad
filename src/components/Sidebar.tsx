@@ -1,4 +1,3 @@
-
 import { Home, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle, EllipsisVertical, TrendingUpIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -78,15 +77,12 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
 
       {/* Logo */}
       <div className={`flex items-center space-x-2 mb-8 px-2 ${sidebarCollapsed ? 'justify-center' : ''}`}>
-        <div className="relative">
-          <div className="w-8 h-8 bg-sendor rounded-lg flex items-center justify-center animate-float">
-            <TrendingUpIcon className="w-5 h-5 text-white" />
-          </div>
-          <div className="absolute inset-0 w-8 h-8 animate-pulse-neon opacity-50"></div>
+        <div className="w-8 h-8 bg-sendor rounded-lg flex items-center justify-center">
+          <TrendingUpIcon className="w-5 h-5 text-white" />
         </div>
         {!sidebarCollapsed && (
           <div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-sendor via-sendor-light to-sendor-600 bg-clip-text text-transparent animate-glow">
+            <h1 className="text-xl font-bold bg-gradient-to-r from-sendor via-sendor-light to-sendor-600 bg-clip-text text-transparent">
               sendor.fun
             </h1>
             <p className="text-xs text-gray-400 dark:text-gray-400 light:text-gray-600">Launch fast. Send hard. No brakes.</p>
