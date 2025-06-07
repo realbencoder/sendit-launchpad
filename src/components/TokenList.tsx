@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { TrendingUp, Users, DollarSign, ExternalLink, MessageCircle, Twitter, ChevronLeft, ChevronRight, Search, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -319,6 +318,24 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
     onSelectToken(token);
   };
 
+  const handleTrendingTokenClick = (trendingToken: any) => {
+    // Create a mock token object for the trading view
+    const mockToken: Token = {
+      id: trendingToken.symbol.toLowerCase(),
+      name: trendingToken.name,
+      symbol: trendingToken.symbol,
+      price: '$0.000103',
+      marketCap: trendingToken.marketCap,
+      volume: '$24.5K',
+      change24h: trendingToken.change24h,
+      holders: 1247,
+      image: trendingToken.image,
+      replies: 42,
+      tags: ['🚀', '💎', '🌙']
+    };
+    onSelectToken(mockToken);
+  };
+
   // Filter tokens based on search query and active filter
   const filteredTokens = mockTokens.filter(token => {
     const matchesSearch = token.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -342,7 +359,11 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
             </button>
             <div className="flex space-x-6 overflow-x-auto scrollbar-hide">
               {trendingTokens.map((token, index) => (
-                <div key={index} className="flex items-center space-x-3 bg-gray-850 rounded-lg px-4 py-2 min-w-fit border border-gray-700">
+                <button
+                  key={index}
+                  onClick={() => handleTrendingTokenClick(token)}
+                  className="flex items-center space-x-3 bg-gray-850 rounded-lg px-4 py-2 min-w-fit border border-gray-700 hover:border-abstract/50 transition-all duration-200 cursor-pointer"
+                >
                   <img 
                     src={token.image} 
                     alt={token.name}
@@ -350,7 +371,7 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
                   />
                   <div className="text-left">
                     <div className="flex items-center space-x-2">
-                      <span className="text-white font-medium text-sm">{token.name}</span>
+                      <span className="text-white font-medium text-sm hover:text-abstract transition-colors">{token.name}</span>
                       <span className="text-gray-400 text-xs">({token.symbol})</span>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -360,7 +381,7 @@ const TokenList = ({ onSelectToken }: TokenListProps) => {
                       </span>
                     </div>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
             <button className="p-1 text-gray-400 hover:text-white">
