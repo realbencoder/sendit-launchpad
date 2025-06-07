@@ -6,8 +6,6 @@ import TokenList from '../components/TokenList';
 import CreateToken from '../components/CreateToken';
 import TradingView from '../components/TradingView';
 import SendorHub from '../components/SendorHub';
-import SenditStudio from '../components/SenditStudio';
-import SenditPass from '../components/SenditPass';
 import Support from '../components/Support';
 import HowItWorks from '../components/HowItWorks';
 import Footer from '../components/Footer';
@@ -40,8 +38,6 @@ const Index = () => {
           )}
           {activeView === 'create' && <CreateToken />}
           {activeView === 'profile' && <SendorHub />}
-          {activeView === 'studio' && <SenditStudio />}
-          {activeView === 'pass' && <SenditPass />}
           {activeView === 'how-it-works' && <HowItWorks />}
           {activeView === 'support' && <Support />}
           {activeView === 'trading' && selectedToken && (

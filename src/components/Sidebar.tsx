@@ -34,8 +34,6 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
   ];
 
   const moreMenuItems = [
-    { id: 'studio', label: 'Sendor Studio', icon: Palette },
-    { id: 'pass', label: 'Sendor Pass', icon: GraduationCap },
     { id: 'how-it-works', label: 'How it works', icon: HelpCircle },
     { id: 'support', label: 'Support', icon: LifeBuoy },
   ];
