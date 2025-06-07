@@ -84,7 +84,6 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
             <h1 className="text-xl font-bold bg-gradient-to-r from-sendor via-sendor-light to-sendor-600 bg-clip-text text-transparent">
               sendor.fun
             </h1>
-            <p className="text-xs text-gray-400 font-medium">Launch fast. Send hard. No brakes.</p>
           </div>
         )}
       </div>
