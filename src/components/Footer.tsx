@@ -21,14 +21,7 @@ const Footer = () => {
           href="#" 
           className="hover:text-gray-300 transition-colors underline"
         >
-          fees
-        </a>
-        <span>|</span>
-        <a 
-          href="#" 
-          className="hover:text-gray-300 transition-colors underline"
-        >
-          tech updates
+          disclaimer
         </a>
       </div>
     </footer>
