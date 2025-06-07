@@ -24,7 +24,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-900 dark:bg-gray-900 light:bg-gray-50 text-white dark:text-white light:text-gray-900 flex flex-col">
       {/* Live Ticker */}
-      <LiveTicker />
+      <LiveTicker onTokenClick={handleSelectToken} />
       
       <div className="flex flex-1">
         {/* Sidebar */}

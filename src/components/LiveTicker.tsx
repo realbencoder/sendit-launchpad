@@ -11,7 +11,11 @@ interface TickerItem {
   user: string;
 }
 
-const LiveTicker = () => {
+interface LiveTickerProps {
+  onTokenClick?: (token: any) => void;
+}
+
+const LiveTicker = ({ onTokenClick }: LiveTickerProps) => {
   const [tickerItems, setTickerItems] = useState<TickerItem[]>([]);
 
   // Mock real-time ticker data
@@ -41,6 +45,26 @@ const LiveTicker = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleTokenClick = (tokenName: string) => {
+    if (onTokenClick) {
+      // Create a mock token object for the trading view
+      const mockToken = {
+        id: tokenName.toLowerCase().replace('$', ''),
+        name: tokenName,
+        symbol: tokenName,
+        price: '$0.000103',
+        marketCap: '$1.2M',
+        volume: '$24.5K',
+        change24h: Math.random() > 0.5 ? 15.2 : -8.7,
+        holders: 1247,
+        image: '/placeholder.svg',
+        replies: 42,
+        tags: ['🚀', '💎', '🌙']
+      };
+      onTokenClick(mockToken);
+    }
+  };
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-gray-950 border-b border-gray-700 h-16">
       <div className="flex items-center h-full overflow-hidden">
@@ -63,7 +87,12 @@ const LiveTicker = () => {
                 </span>
                 <span className="text-white font-semibold">{item.amount} ETH</span>
                 <span className="text-gray-400">of</span>
-                <span className="text-abstract font-semibold">{item.token}</span>
+                <button
+                  onClick={() => handleTokenClick(item.token)}
+                  className="text-abstract font-semibold hover:text-abstract-light cursor-pointer transition-colors"
+                >
+                  {item.token}
+                </button>
                 <span className="text-gray-500">•</span>
                 <span className="text-gray-400">{item.user}</span>
               </div>
