@@ -43,7 +43,7 @@ const CreateToken = () => {
         <h1 className="text-3xl font-bold bg-gradient-to-r from-sendor via-sendor-light to-sendor-600 bg-clip-text text-transparent mb-2">
           Launch Your Token
         </h1>
-        <p className="text-gray-400 dark:text-gray-400 light:text-gray-600">
+        <p className="text-gray-400">
           Create and deploy your own cryptocurrency in minutes
         </p>
       </div>
@@ -58,7 +58,7 @@ const CreateToken = () => {
             <Input
               value={tokenData.name}
               onChange={(e) => setTokenData({ ...tokenData, name: e.target.value })}
-              className="neo-card border-sendor/30 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm focus:border-sendor transition-all duration-300"
+              className="neo-card border-sendor/30 text-white bg-transparent backdrop-blur-sm focus:border-sendor transition-all duration-300"
               placeholder="Enter token name"
             />
           </div>
@@ -73,7 +73,7 @@ const CreateToken = () => {
               <Input
                 value={tokenData.symbol}
                 onChange={(e) => setTokenData({ ...tokenData, symbol: e.target.value.toUpperCase() })}
-                className="neo-card border-sendor/30 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm pl-10 focus:border-sendor transition-all duration-300"
+                className="neo-card border-sendor/30 text-white bg-transparent backdrop-blur-sm pl-10 focus:border-sendor transition-all duration-300"
                 maxLength={10}
                 placeholder="SYMBOL"
               />
@@ -89,7 +89,7 @@ const CreateToken = () => {
           <Textarea
             value={tokenData.description}
             onChange={(e) => setTokenData({ ...tokenData, description: e.target.value })}
-            className="neo-card border-sendor/30 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm h-32 focus:border-sendor transition-all duration-300 resize-none"
+            className="neo-card border-sendor/30 text-white bg-transparent backdrop-blur-sm h-32 focus:border-sendor transition-all duration-300 resize-none"
             placeholder="Describe your token's purpose and vision..."
           />
         </div>
@@ -111,7 +111,7 @@ const CreateToken = () => {
               <div className="p-4 rounded-2xl bg-sendor/10 inline-block mb-4 group-hover:bg-sendor/20 transition-all duration-300">
                 <Upload className="w-8 h-8 text-sendor mx-auto" />
               </div>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 mb-3 font-medium">
+              <p className="text-gray-300 mb-3 font-medium">
                 Drag and drop your media or click to browse
               </p>
               <Button variant="outline" className="sendor-border bg-transparent text-sendor hover:bg-sendor/10 transition-all duration-300">
@@ -129,38 +129,38 @@ const CreateToken = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-gray-400 dark:text-gray-400 light:text-gray-600 text-xs font-medium mb-2">
+              <label className="block text-gray-400 text-xs font-medium mb-2">
                 Telegram
               </label>
               <Input
                 value={tokenData.telegramLink}
                 onChange={(e) => setTokenData({ ...tokenData, telegramLink: e.target.value })}
                 placeholder="https://t.me/..."
-                className="neo-card border-sendor/20 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm focus:border-sendor/50 transition-all duration-300"
+                className="neo-card border-sendor/20 text-white bg-transparent backdrop-blur-sm focus:border-sendor/50 transition-all duration-300"
               />
             </div>
 
             <div>
-              <label className="block text-gray-400 dark:text-gray-400 light:text-gray-600 text-xs font-medium mb-2">
+              <label className="block text-gray-400 text-xs font-medium mb-2">
                 Website
               </label>
               <Input
                 value={tokenData.website}
                 onChange={(e) => setTokenData({ ...tokenData, website: e.target.value })}
                 placeholder="https://..."
-                className="neo-card border-sendor/20 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm focus:border-sendor/50 transition-all duration-300"
+                className="neo-card border-sendor/20 text-white bg-transparent backdrop-blur-sm focus:border-sendor/50 transition-all duration-300"
               />
             </div>
 
             <div>
-              <label className="block text-gray-400 dark:text-gray-400 light:text-gray-600 text-xs font-medium mb-2">
+              <label className="block text-gray-400 text-xs font-medium mb-2">
                 X (Twitter)
               </label>
               <Input
                 value={tokenData.twitterLink}
                 onChange={(e) => setTokenData({ ...tokenData, twitterLink: e.target.value })}
                 placeholder="https://x.com/..."
-                className="neo-card border-sendor/20 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm focus:border-sendor/50 transition-all duration-300"
+                className="neo-card border-sendor/20 text-white bg-transparent backdrop-blur-sm focus:border-sendor/50 transition-all duration-300"
               />
             </div>
           </div>
@@ -168,7 +168,7 @@ const CreateToken = () => {
 
         <div className="pt-6 border-t border-sendor/20">
           <div className="bg-gradient-to-r from-sendor/10 to-sendor-600/10 rounded-2xl p-4 mb-6 sendor-border">
-            <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm font-medium text-center">
+            <p className="text-gray-300 text-sm font-medium text-center">
               ⚠️ Token data cannot be modified after deployment
             </p>
           </div>
