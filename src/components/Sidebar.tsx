@@ -1,3 +1,4 @@
+
 import { Home, Plus, TrendingUp, User, Users, Palette, GraduationCap, LifeBuoy, ChevronDown, ChevronRight, MoreHorizontal, PanelLeftClose, PanelLeftOpen, HelpCircle, Twitter, MessageCircle, EllipsisVertical, TrendingUpIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -56,15 +57,15 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
   };
 
   return (
-    <div className={`fixed left-0 top-16 h-full bg-gradient-to-b from-gray-875 to-gray-925 dark:from-gray-875 dark:to-gray-925 light:from-gray-50 light:to-gray-100 border-r border-sendor/20 dark:border-sendor/20 light:border-gray-300 p-4 cyber-grid transition-all duration-300 z-20 ${
+    <div className={`fixed left-0 top-16 h-full glass-effect backdrop-blur-xl border-r border-sendor/20 dark:border-sendor/20 light:border-gray-300/50 p-4 transition-all duration-300 z-20 ${
       sidebarCollapsed ? 'w-20' : 'w-64'
     }`}>
       {/* Toggle Button and Theme Toggle */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-6">
         {!sidebarCollapsed && <ThemeToggle />}
         <button
           onClick={handleToggleSidebar}
-          className="p-2 rounded-lg text-gray-300 dark:text-gray-300 light:text-gray-600 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-gray-800/50 dark:hover:bg-gray-800/50 light:hover:bg-gray-200 transition-all duration-300"
+          className="p-2.5 rounded-xl text-gray-300 dark:text-gray-300 light:text-gray-600 hover:text-sendor dark:hover:text-sendor light:hover:text-sendor hover:bg-sendor/10 dark:hover:bg-sendor/10 light:hover:bg-sendor/10 transition-all duration-300 sendor-border"
         >
           {sidebarCollapsed ? (
             <PanelLeftOpen className="w-5 h-5" />
@@ -76,16 +77,19 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
       </div>
 
       {/* Logo */}
-      <div className={`flex items-center space-x-2 mb-8 px-2 ${sidebarCollapsed ? 'justify-center' : ''}`}>
-        <div className="w-8 h-8 bg-sendor rounded-lg flex items-center justify-center">
-          <TrendingUpIcon className="w-5 h-5 text-white" />
+      <div className={`flex items-center space-x-3 mb-8 px-2 ${sidebarCollapsed ? 'justify-center' : ''}`}>
+        <div className="relative">
+          <div className="w-10 h-10 bg-gradient-to-br from-sendor to-sendor-600 rounded-2xl flex items-center justify-center sendor-glow transform rotate-12">
+            <TrendingUpIcon className="w-6 h-6 text-white transform -rotate-12" />
+          </div>
+          <div className="absolute -inset-1 bg-gradient-to-br from-sendor/20 to-sendor-600/20 rounded-2xl blur-sm"></div>
         </div>
         {!sidebarCollapsed && (
           <div>
             <h1 className="text-xl font-bold bg-gradient-to-r from-sendor via-sendor-light to-sendor-600 bg-clip-text text-transparent">
               sendor.fun
             </h1>
-            <p className="text-xs text-gray-400 dark:text-gray-400 light:text-gray-600">Launch fast. Send hard. No brakes.</p>
+            <p className="text-xs text-gray-400 dark:text-gray-400 light:text-gray-600 font-medium">Launch fast. Send hard. No brakes.</p>
           </div>
         )}
       </div>
@@ -98,17 +102,20 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
             <button
               key={item.id}
               onClick={() => setActiveView(item.id)}
-              className={`w-full flex items-center ${sidebarCollapsed ? 'justify-center px-2 py-3' : 'space-x-3 px-4 py-3'} rounded-lg transition-all duration-300 group ${
+              className={`w-full flex items-center ${sidebarCollapsed ? 'justify-center px-3 py-4' : 'space-x-3 px-4 py-3.5'} rounded-2xl transition-all duration-300 group relative overflow-hidden ${
                 activeView === item.id
-                  ? 'bg-gradient-to-r from-sendor/20 to-sendor-600/20 text-sendor border border-sendor/40 neon-glow'
-                  : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 dark:hover:from-gray-800/50 dark:hover:to-gray-750/50 light:hover:from-gray-200 light:hover:to-gray-300 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:border-sendor/20 border border-transparent'
+                  ? 'bg-gradient-to-r from-sendor/15 to-sendor-600/15 text-sendor sendor-border sendor-glow'
+                  : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gradient-to-r hover:from-sendor/8 hover:to-sendor-600/8 dark:hover:from-sendor/8 dark:hover:to-sendor-600/8 light:hover:from-sendor/8 light:hover:to-sendor-600/8 hover:text-sendor dark:hover:text-sendor light:hover:text-sendor border-2 border-transparent hover:border-sendor/20'
               }`}
               title={sidebarCollapsed ? item.label : undefined}
             >
               <Icon className={`w-5 h-5 transition-all duration-300 ${
                 activeView === item.id ? 'text-sendor' : 'group-hover:text-sendor'
               }`} />
-              {!sidebarCollapsed && <span className="font-medium">{item.label}</span>}
+              {!sidebarCollapsed && <span className="font-semibold">{item.label}</span>}
+              {activeView === item.id && (
+                <div className="absolute inset-0 bg-gradient-to-r from-sendor/5 to-transparent rounded-2xl"></div>
+              )}
             </button>
           );
         })}
@@ -118,16 +125,16 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
           <div>
             <button
               onClick={() => setMoreExpanded(!moreExpanded)}
-              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 group ${
+              className={`w-full flex items-center space-x-3 px-4 py-3.5 rounded-2xl transition-all duration-300 group relative overflow-hidden ${
                 isMoreItemActive
-                  ? 'bg-gradient-to-r from-sendor/20 to-sendor-600/20 text-sendor border border-sendor/40 neon-glow'
-                  : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 dark:hover:from-gray-800/50 dark:hover:to-gray-750/50 light:hover:from-gray-200 light:hover:to-gray-300 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:border-sendor/20 border border-transparent'
+                  ? 'bg-gradient-to-r from-sendor/15 to-sendor-600/15 text-sendor sendor-border sendor-glow'
+                  : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gradient-to-r hover:from-sendor/8 hover:to-sendor-600/8 dark:hover:from-sendor/8 dark:hover:to-sendor-600/8 light:hover:from-sendor/8 light:hover:to-sendor-600/8 hover:text-sendor dark:hover:text-sendor light:hover:text-sendor border-2 border-transparent hover:border-sendor/20'
               }`}
             >
               <MoreHorizontal className={`w-5 h-5 transition-all duration-300 ${
                 isMoreItemActive ? 'text-sendor' : 'group-hover:text-sendor'
               }`} />
-              <span className="font-medium flex-1 text-left">More</span>
+              <span className="font-semibold flex-1 text-left">More</span>
               {moreExpanded ? (
                 <ChevronDown className="w-4 h-4" />
               ) : (
@@ -137,17 +144,17 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
 
             {/* More Sub-items */}
             {moreExpanded && (
-              <div className="ml-4 mt-2 space-y-1">
+              <div className="ml-4 mt-3 space-y-2">
                 {moreMenuItems.map((item) => {
                   const Icon = item.icon;
                   return (
                     <button
                       key={item.id}
                       onClick={() => setActiveView(item.id)}
-                      className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-all duration-300 group ${
+                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 group ${
                         activeView === item.id
-                          ? 'bg-gradient-to-r from-sendor/30 to-sendor-600/30 text-sendor border border-sendor/40'
-                          : 'text-gray-400 dark:text-gray-400 light:text-gray-600 hover:bg-gradient-to-r hover:from-gray-800/30 hover:to-gray-750/30 dark:hover:from-gray-800/30 dark:hover:to-gray-750/30 light:hover:from-gray-200/50 light:hover:to-gray-300/50 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:border-sendor/20 border border-transparent'
+                          ? 'bg-gradient-to-r from-sendor/20 to-sendor-600/20 text-sendor sendor-border'
+                          : 'text-gray-400 dark:text-gray-400 light:text-gray-600 hover:bg-gradient-to-r hover:from-sendor/10 hover:to-sendor-600/10 dark:hover:from-sendor/10 dark:hover:to-sendor-600/10 light:hover:from-sendor/10 light:hover:to-sendor-600/10 hover:text-sendor dark:hover:text-sendor light:hover:text-sendor border-2 border-transparent hover:border-sendor/15'
                       }`}
                     >
                       <Icon className={`w-4 h-4 transition-all duration-300 ${
@@ -159,15 +166,15 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                 })}
                 
                 {/* Social Icons */}
-                <div className="mt-4 pt-2 border-t border-gray-700/50 dark:border-gray-700/50 light:border-gray-300">
-                  <div className="flex justify-center space-x-2">
+                <div className="mt-4 pt-3 border-t border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50">
+                  <div className="flex justify-center space-x-3">
                     {socialIcons.map((social) => {
                       const Icon = social.icon;
                       return (
                         <a
                           key={social.id}
                           href={social.url}
-                          className="p-2 rounded-lg text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-sendor hover:bg-gray-800/30 dark:hover:bg-gray-800/30 light:hover:bg-gray-200/50 transition-all duration-300"
+                          className="p-2.5 rounded-xl text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-sendor hover:bg-sendor/10 dark:hover:bg-sendor/10 light:hover:bg-sendor/10 transition-all duration-300 border-2 border-transparent hover:border-sendor/20"
                           title={social.label}
                         >
                           <Icon className="w-4 h-4" />
@@ -186,10 +193,10 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
-                className={`w-full flex items-center justify-center px-2 py-3 rounded-lg transition-all duration-300 group ${
+                className={`w-full flex items-center justify-center px-3 py-4 rounded-2xl transition-all duration-300 group ${
                   isMoreItemActive
-                    ? 'bg-gradient-to-r from-sendor/20 to-sendor-600/20 text-sendor border border-sendor/40 neon-glow'
-                    : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-750/50 dark:hover:from-gray-800/50 dark:hover:to-gray-750/50 light:hover:from-gray-200 light:hover:to-gray-300 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:border-sendor/20 border border-transparent'
+                    ? 'bg-gradient-to-r from-sendor/15 to-sendor-600/15 text-sendor sendor-border sendor-glow'
+                    : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gradient-to-r hover:from-sendor/8 hover:to-sendor-600/8 dark:hover:from-sendor/8 dark:hover:to-sendor-600/8 light:hover:from-sendor/8 light:hover:to-sendor-600/8 hover:text-sendor dark:hover:text-sendor light:hover:text-sendor border-2 border-transparent hover:border-sendor/20'
                 }`}
                 title="More"
               >
@@ -198,15 +205,15 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                 }`} />
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent side="right" className="bg-gray-800 dark:bg-gray-800 light:bg-white border-gray-700 dark:border-gray-700 light:border-gray-300 text-white dark:text-white light:text-gray-900">
+            <DropdownMenuContent side="right" className="neo-card text-white dark:text-white light:text-gray-900 border-0">
               {moreMenuItems.map((item) => {
                 const Icon = item.icon;
                 return (
                   <DropdownMenuItem
                     key={item.id}
                     onClick={() => setActiveView(item.id)}
-                    className={`flex items-center space-x-2 cursor-pointer hover:bg-gray-700 dark:hover:bg-gray-700 light:hover:bg-gray-100 ${
-                      activeView === item.id ? 'bg-gray-700 dark:bg-gray-700 light:bg-gray-100 text-sendor' : ''
+                    className={`flex items-center space-x-2 cursor-pointer hover:bg-sendor/10 dark:hover:bg-sendor/10 light:hover:bg-sendor/10 rounded-xl m-1 ${
+                      activeView === item.id ? 'bg-sendor/10 dark:bg-sendor/10 light:bg-sendor/10 text-sendor' : ''
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -214,7 +221,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                   </DropdownMenuItem>
                 );
               })}
-              <DropdownMenuSeparator className="bg-gray-700 dark:bg-gray-700 light:bg-gray-300" />
+              <DropdownMenuSeparator className="bg-gray-700/30 dark:bg-gray-700/30 light:bg-gray-300/50" />
               <div className="flex justify-center space-x-2 p-2">
                 {socialIcons.map((social) => {
                   const Icon = social.icon;
@@ -222,7 +229,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
                     <a
                       key={social.id}
                       href={social.url}
-                      className="p-1 rounded text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-sendor transition-colors"
+                      className="p-2 rounded-xl text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-sendor hover:bg-sendor/10 transition-colors"
                       title={social.label}
                     >
                       <Icon className="w-4 h-4" />
@@ -237,8 +244,8 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
 
       {/* Connect Wallet */}
       <div className={`absolute bottom-4 left-4 right-4 ${sidebarCollapsed ? 'left-2 right-2' : ''}`}>
-        <Button className={`w-full bg-gradient-to-r from-sendor to-sendor-600 hover:from-sendor-light hover:to-sendor-dark text-white font-bold transition-all duration-300 transform hover:scale-105 neon-glow ${
-          sidebarCollapsed ? 'p-2' : ''
+        <Button className={`w-full bg-gradient-to-r from-sendor via-sendor-500 to-sendor-600 hover:from-sendor-400 hover:to-sendor-700 text-white font-bold transition-all duration-300 transform hover:scale-105 sendor-glow rounded-2xl border-2 border-sendor/30 ${
+          sidebarCollapsed ? 'p-3' : 'py-3.5'
         }`}>
           {sidebarCollapsed ? <User className="w-5 h-5" /> : 'Connect Wallet'}
         </Button>

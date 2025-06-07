@@ -34,7 +34,7 @@
     --input: 240 3.7% 15.9%;
     --ring: 145 98% 37%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
     
     /* Dynamic sidebar width - defaults to expanded */
     --sidebar-width: 256px;
@@ -77,36 +77,40 @@
   }
 
   body {
-    @apply bg-gradient-to-br from-gray-950 via-black to-gray-900 text-foreground font-sans;
-    background-size: 80px 80px;
+    @apply bg-gradient-to-br from-slate-950 via-gray-950 to-black text-foreground font-sans;
+    background-size: 100px 100px;
     background-image: 
-      linear-gradient(rgba(1, 188, 59, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(1, 188, 59, 0.05) 1px, transparent 1px);
+      radial-gradient(circle at 25% 25%, rgba(1, 188, 59, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(1, 188, 59, 0.02) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(1, 188, 59, 0.02) 1px, transparent 1px),
+      linear-gradient(45deg, rgba(1, 188, 59, 0.02) 1px, transparent 1px);
   }
   
   .light body {
-    @apply bg-gradient-to-br from-blue-50 via-white to-cyan-50;
-    background-size: 60px 60px;
+    @apply bg-gradient-to-br from-slate-50 via-white to-gray-50;
+    background-size: 80px 80px;
     background-image: 
-      linear-gradient(rgba(1, 188, 59, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(1, 188, 59, 0.08) 1px, transparent 1px);
+      radial-gradient(circle at 30% 30%, rgba(1, 188, 59, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(1, 188, 59, 0.03) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(1, 188, 59, 0.03) 1px, transparent 1px),
+      linear-gradient(45deg, rgba(1, 188, 59, 0.03) 1px, transparent 1px);
   }
   
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-gray-900;
+    @apply bg-gray-900 rounded-full;
   }
   
   .light ::-webkit-scrollbar-track {
-    @apply bg-gray-100;
+    @apply bg-gray-200 rounded-full;
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-gradient-to-b from-sendor to-sendor-dark rounded-full;
+    @apply bg-gradient-to-b from-sendor-400 to-sendor-600 rounded-full;
   }
   
   .light ::-webkit-scrollbar-thumb {
@@ -114,10 +118,6 @@
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    @apply from-sendor-light to-sendor;
-  }
-  
-  .light ::-webkit-scrollbar-thumb:hover {
     @apply from-sendor-300 to-sendor-500;
   }
 }
@@ -127,40 +127,87 @@
     animation: slide-up 0.5s ease-out;
   }
 
-  .neon-glow {
-    @apply shadow-lg;
-    box-shadow: 0 0 20px rgba(1, 188, 59, 0.3);
+  .sendor-glow {
+    @apply shadow-xl;
+    box-shadow: 
+      0 0 30px rgba(1, 188, 59, 0.2),
+      0 0 60px rgba(1, 188, 59, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   
-  .light .neon-glow {
-    box-shadow: 0 0 20px rgba(1, 188, 59, 0.2);
+  .light .sendor-glow {
+    box-shadow: 
+      0 0 30px rgba(1, 188, 59, 0.15),
+      0 0 60px rgba(1, 188, 59, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
-  .neon-border {
-    @apply border border-sendor/50;
-    box-shadow: 0 0 10px rgba(1, 188, 59, 0.2);
+  .sendor-border {
+    @apply border-2 border-sendor/40 relative;
+    background: linear-gradient(135deg, rgba(1, 188, 59, 0.05), rgba(1, 188, 59, 0.02));
   }
   
-  .light .neon-border {
-    @apply border border-sendor-400/50;
-    box-shadow: 0 0 10px rgba(1, 188, 59, 0.15);
+  .sendor-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    padding: 2px;
+    background: linear-gradient(135deg, #01BC3B, #019930, #01BC3B);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    pointer-events: none;
+  }
+  
+  .light .sendor-border {
+    @apply border-sendor-300/50;
+    background: linear-gradient(135deg, rgba(1, 188, 59, 0.04), rgba(1, 188, 59, 0.01));
   }
 
-  .cyber-card {
-    @apply bg-gradient-to-br from-gray-900 via-gray-850 to-gray-950 border border-sendor/30 rounded-lg;
+  .neo-card {
+    @apply bg-gradient-to-br from-gray-900/80 via-gray-850/80 to-gray-900/80 backdrop-blur-sm border-2 border-gray-700/50 rounded-2xl relative overflow-hidden;
     background-image: 
-      linear-gradient(rgba(1, 188, 59, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(1, 188, 59, 0.08) 1px, transparent 1px);
-    background-size: 20px 20px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      radial-gradient(circle at 20% 20%, rgba(1, 188, 59, 0.05) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
-  .light .cyber-card {
-    @apply bg-gradient-to-br from-white via-sendor-50 to-slate-50 border-sendor-200;
+  .neo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(1, 188, 59, 0.3), transparent);
+    pointer-events: none;
+  }
+
+  .light .neo-card {
+    @apply bg-gradient-to-br from-white via-gray-50 to-white border-gray-200/80;
     background-image: 
-      linear-gradient(rgba(1, 188, 59, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(1, 188, 59, 0.06) 1px, transparent 1px);
-    background-size: 15px 15px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      radial-gradient(circle at 20% 20%, rgba(1, 188, 59, 0.03) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, transparent 50%);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 2px 8px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-effect {
+    @apply bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-md border border-white/10;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .light .glass-effect {
+    @apply bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm border-white/40;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
 }

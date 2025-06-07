@@ -1,5 +1,6 @@
+
 import { useState } from 'react';
-import { Upload } from 'lucide-react';
+import { Upload, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -32,50 +33,73 @@ const CreateToken = () => {
   };
 
   return (
-    <div className="p-6 pt-20 max-w-xl mx-auto">
-      <div className="bg-gray-850 border border-gray-700 rounded-xl p-6 space-y-4">
-        <div>
-          <label className="block text-blue-400 text-sm font-medium mb-2">
-            name
-          </label>
-          <Input
-            value={tokenData.name}
-            onChange={(e) => setTokenData({ ...tokenData, name: e.target.value })}
-            className="bg-gray-800 border-gray-600 text-white"
-          />
+    <div className="p-6 pt-20 max-w-2xl mx-auto">
+      <div className="mb-8 text-center">
+        <div className="flex items-center justify-center mb-4">
+          <div className="p-3 rounded-2xl bg-gradient-to-br from-sendor/20 to-sendor-600/20 sendor-border">
+            <Sparkles className="w-8 h-8 text-sendor" />
+          </div>
         </div>
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-sendor via-sendor-light to-sendor-600 bg-clip-text text-transparent mb-2">
+          Launch Your Token
+        </h1>
+        <p className="text-gray-400 dark:text-gray-400 light:text-gray-600">
+          Create and deploy your own cryptocurrency in minutes
+        </p>
+      </div>
 
-        <div>
-          <label className="block text-blue-400 text-sm font-medium mb-2">
-            ticker
-          </label>
-          <div className="relative">
-            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">$</span>
+      <div className="neo-card p-8 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sendor text-sm font-semibold mb-3 flex items-center">
+              <span className="w-2 h-2 bg-sendor rounded-full mr-2"></span>
+              Token Name
+            </label>
             <Input
-              value={tokenData.symbol}
-              onChange={(e) => setTokenData({ ...tokenData, symbol: e.target.value.toUpperCase() })}
-              className="bg-gray-800 border-gray-600 text-white pl-8"
-              maxLength={10}
+              value={tokenData.name}
+              onChange={(e) => setTokenData({ ...tokenData, name: e.target.value })}
+              className="neo-card border-sendor/30 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm focus:border-sendor transition-all duration-300"
+              placeholder="Enter token name"
             />
+          </div>
+
+          <div>
+            <label className="block text-sendor text-sm font-semibold mb-3 flex items-center">
+              <span className="w-2 h-2 bg-sendor rounded-full mr-2"></span>
+              Symbol
+            </label>
+            <div className="relative">
+              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-sendor font-bold">$</span>
+              <Input
+                value={tokenData.symbol}
+                onChange={(e) => setTokenData({ ...tokenData, symbol: e.target.value.toUpperCase() })}
+                className="neo-card border-sendor/30 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm pl-10 focus:border-sendor transition-all duration-300"
+                maxLength={10}
+                placeholder="SYMBOL"
+              />
+            </div>
           </div>
         </div>
 
         <div>
-          <label className="block text-blue-400 text-sm font-medium mb-2">
-            description
+          <label className="block text-sendor text-sm font-semibold mb-3 flex items-center">
+            <span className="w-2 h-2 bg-sendor rounded-full mr-2"></span>
+            Description
           </label>
           <Textarea
             value={tokenData.description}
             onChange={(e) => setTokenData({ ...tokenData, description: e.target.value })}
-            className="bg-gray-800 border-gray-600 text-white h-24"
+            className="neo-card border-sendor/30 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm h-32 focus:border-sendor transition-all duration-300 resize-none"
+            placeholder="Describe your token's purpose and vision..."
           />
         </div>
 
         <div>
-          <label className="block text-blue-400 text-sm font-medium mb-2">
-            image or video
+          <label className="block text-sendor text-sm font-semibold mb-3 flex items-center">
+            <span className="w-2 h-2 bg-sendor rounded-full mr-2"></span>
+            Token Image / Video
           </label>
-          <div className="border-2 border-dashed border-gray-600 rounded-lg p-6 text-center hover:border-gray-500 transition-colors">
+          <div className="sendor-border rounded-2xl p-8 text-center hover:bg-sendor/5 transition-all duration-300 group cursor-pointer">
             <input
               type="file"
               accept="image/*,video/*"
@@ -84,64 +108,78 @@ const CreateToken = () => {
               id="image-upload"
             />
             <label htmlFor="image-upload" className="cursor-pointer">
-              <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-              <p className="text-gray-400 mb-2">drag and drop an image or video</p>
-              <Button variant="outline" className="bg-gray-700 border-gray-600 text-white hover:bg-gray-600">
-                select file
+              <div className="p-4 rounded-2xl bg-sendor/10 inline-block mb-4 group-hover:bg-sendor/20 transition-all duration-300">
+                <Upload className="w-8 h-8 text-sendor mx-auto" />
+              </div>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 mb-3 font-medium">
+                Drag and drop your media or click to browse
+              </p>
+              <Button variant="outline" className="sendor-border bg-transparent text-sendor hover:bg-sendor/10 transition-all duration-300">
+                Choose File
               </Button>
             </label>
           </div>
         </div>
 
-        <div className="text-blue-400 text-sm cursor-pointer hover:text-blue-300">
-          hide more options ↑
+        <div className="border-t border-sendor/20 pt-6">
+          <div className="text-sendor text-sm font-semibold mb-4 flex items-center">
+            <span className="w-2 h-2 bg-sendor rounded-full mr-2"></span>
+            Social Links (Optional)
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-gray-400 dark:text-gray-400 light:text-gray-600 text-xs font-medium mb-2">
+                Telegram
+              </label>
+              <Input
+                value={tokenData.telegramLink}
+                onChange={(e) => setTokenData({ ...tokenData, telegramLink: e.target.value })}
+                placeholder="https://t.me/..."
+                className="neo-card border-sendor/20 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm focus:border-sendor/50 transition-all duration-300"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-400 dark:text-gray-400 light:text-gray-600 text-xs font-medium mb-2">
+                Website
+              </label>
+              <Input
+                value={tokenData.website}
+                onChange={(e) => setTokenData({ ...tokenData, website: e.target.value })}
+                placeholder="https://..."
+                className="neo-card border-sendor/20 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm focus:border-sendor/50 transition-all duration-300"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-400 dark:text-gray-400 light:text-gray-600 text-xs font-medium mb-2">
+                X (Twitter)
+              </label>
+              <Input
+                value={tokenData.twitterLink}
+                onChange={(e) => setTokenData({ ...tokenData, twitterLink: e.target.value })}
+                placeholder="https://x.com/..."
+                className="neo-card border-sendor/20 text-white dark:text-white light:text-gray-900 bg-transparent backdrop-blur-sm focus:border-sendor/50 transition-all duration-300"
+              />
+            </div>
+          </div>
         </div>
 
-        <div>
-          <label className="block text-blue-400 text-sm font-medium mb-2">
-            Telegram link
-          </label>
-          <Input
-            value={tokenData.telegramLink}
-            onChange={(e) => setTokenData({ ...tokenData, telegramLink: e.target.value })}
-            placeholder="(optional)"
-            className="bg-gray-800 border-gray-600 text-white"
-          />
-        </div>
-
-        <div>
-          <label className="block text-blue-400 text-sm font-medium mb-2">
-            Website link
-          </label>
-          <Input
-            value={tokenData.website}
-            onChange={(e) => setTokenData({ ...tokenData, website: e.target.value })}
-            placeholder="(optional)"
-            className="bg-gray-800 border-gray-600 text-white"
-          />
-        </div>
-
-        <div>
-          <label className="block text-blue-400 text-sm font-medium mb-2">
-            Twitter or X link
-          </label>
-          <Input
-            value={tokenData.twitterLink}
-            onChange={(e) => setTokenData({ ...tokenData, twitterLink: e.target.value })}
-            placeholder="(optional)"
-            className="bg-gray-800 border-gray-600 text-white"
-          />
-        </div>
-
-        <div className="pt-2">
-          <p className="text-gray-400 text-sm mb-4">tip: coin data cannot be changed after creation</p>
+        <div className="pt-6 border-t border-sendor/20">
+          <div className="bg-gradient-to-r from-sendor/10 to-sendor-600/10 rounded-2xl p-4 mb-6 sendor-border">
+            <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm font-medium text-center">
+              ⚠️ Token data cannot be modified after deployment
+            </p>
+          </div>
           <Button
             size="lg"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium"
+            className="w-full bg-gradient-to-r from-sendor via-sendor-500 to-sendor-600 hover:from-sendor-400 hover:to-sendor-700 text-white font-bold py-4 rounded-2xl sendor-glow transform hover:scale-[1.02] transition-all duration-300 border-2 border-sendor/30"
             disabled={!tokenData.name || !tokenData.symbol}
             onClick={handleDeploy}
           >
-            login to create coin
+            <Sparkles className="w-5 h-5 mr-2" />
+            Deploy Token & Start Trading
           </Button>
         </div>
       </div>
