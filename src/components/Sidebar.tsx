@@ -72,7 +72,10 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
       </div>
 
       {/* Logo */}
-      <div className={`flex items-center space-x-3 mb-8 px-2 ${sidebarCollapsed ? 'justify-center' : ''}`}>
+      <button
+        onClick={() => setActiveView('pairs')}
+        className={`flex items-center space-x-3 mb-8 px-2 w-full text-left hover:opacity-80 transition-opacity ${sidebarCollapsed ? 'justify-center' : ''}`}
+      >
         <div className="relative">
           <div className="w-10 h-10 bg-gradient-to-br from-sendor to-sendor-600 rounded-2xl flex items-center justify-center sendor-glow">
             <TrendingUpIcon className="w-6 h-6 text-white" />
@@ -86,7 +89,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
             </h1>
           </div>
         )}
-      </div>
+      </button>
 
       {/* Menu Items */}
       <nav className="space-y-2">
