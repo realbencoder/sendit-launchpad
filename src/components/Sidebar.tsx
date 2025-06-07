@@ -40,7 +40,7 @@ const Sidebar = ({ activeView, setActiveView }: SidebarProps) => {
 
   const socialIcons = [
     { id: 'telegram', label: 'Telegram', icon: MessageCircle, url: '#' },
-    { id: 'twitter', label: 'Twitter', icon: Twitter, url: '#' },
+    { id: 'twitter', label: 'Twitter', icon: Twitter, url: 'https://x.com/Sendordotfun' },
     { id: 'tiktok', label: 'TikTok', icon: Users, url: '#' },
   ];
 
